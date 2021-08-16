@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Workout } = require('../../models');
 const db = require('../../models');
 
 router.get('/workouts', async (req, res) => {
@@ -37,6 +38,14 @@ router.get('/workouts/range', async (req, res) => {
         }
     }
     res.json(newdata)
+})
+
+router.post('/workouts', async (req, res) => {
+    let data = {
+        day: new Date(),
+        exercises: []
+    }
+    db.Workout.insert(data)
 })
 
 module.exports = router;
