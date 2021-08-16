@@ -9,6 +9,15 @@ router.get('/stats', async (req, res) => {
         console.log(err);
         res.status(400).json(err)
     }
-}) 
+});
+
+router.get('/exercise', async (req, res) => {
+    try {
+        res.sendFile('exercise.html', {root: './public'});
+    } catch (err) {
+        console.log(err);
+        res.status(400).json(err)
+    }
+});
 
 module.exports = router;
