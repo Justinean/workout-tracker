@@ -45,7 +45,7 @@ router.post('/workouts', async (req, res) => {
         day: new Date(),
         exercises: []
     }
-    db.Workout.insert(data)
+    await db.Workout.collection.insert(data)
 })
 
 module.exports = router;
